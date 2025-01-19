@@ -24,7 +24,7 @@ const Button = styled(MuiButton, {
   fontSize: 12,
 }));
 
-const AddCardModalActions: React.FC = () => {
+const AddBookCardModalActions: React.FC = () => {
   const { reset } = useFormContext();
   const { setSelectedBook, setShouldShowAddBookModal } = React.useContext<BookProps>(BookContext);
 
@@ -45,4 +45,4 @@ const AddCardModalActions: React.FC = () => {
   );
 };
 
-export default AddCardModalActions;
+export default AddBookCardModalActions;

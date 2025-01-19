@@ -7,7 +7,6 @@ import theme from './theme/theme';
 import FallbackRender from './FallbackRender';
 import Home from './components/Home';
 import ReactToastify from './styledComponents/ReactToastify';
-import AppProvider from './providers/AppProvider';
 import BookProvider from './providers/BookProvider';
 
 const App = () => {
@@ -15,11 +14,9 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <ErrorBoundary fallbackRender={FallbackRender}>
         <CssBaseline />
-        <AppProvider>
-          <BookProvider>
-            <Home />
-          </BookProvider>
-        </AppProvider>
+        <BookProvider>
+          <Home />
+        </BookProvider>
         <ReactToastify />
       </ErrorBoundary>
     </ThemeProvider>

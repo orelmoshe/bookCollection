@@ -5,8 +5,8 @@ import Modal from '@mui/material/Modal';
 
 import colors from '../consts/colors';
 import { BookContext, BookProps } from '../providers/BookProvider';
-import AddCardModalFields from './AddCardModalFields';
-import AddCardModalActions from './AddCardModalActions';
+import AddBookCardModalFields from './AddBookCardModalFields';
+import AddBookCardModalActions from './AddBookCardModalActions';
 import { generateUniqId } from '../utils/utils';
 
 const Container = styled('div')(({ theme }) => ({
@@ -49,7 +49,7 @@ interface Props {
   open: boolean;
   onClose?: () => void;
 }
-const AddCardModal: React.FC<Props> = ({ open, onClose = () => {} }) => {
+const AddBookCardModal: React.FC<Props> = ({ open, onClose = () => {} }) => {
   const { selectedBook, setSelectedBook, books, setBooks, setShouldShowAddBookModal } = React.useContext<BookProps>(BookContext);
 
   const methods = useForm({
@@ -91,8 +91,8 @@ const AddCardModal: React.FC<Props> = ({ open, onClose = () => {} }) => {
         <Form onSubmit={methods.handleSubmit(onSubmit)}>
           <Container>
             <TitleText>{titleText}</TitleText>
-            <AddCardModalFields />
-            <AddCardModalActions />
+            <AddBookCardModalFields />
+            <AddBookCardModalActions />
           </Container>
         </Form>
       </FormProvider>
@@ -100,4 +100,4 @@ const AddCardModal: React.FC<Props> = ({ open, onClose = () => {} }) => {
   );
 };
 
-export default AddCardModal;
+export default AddBookCardModal;

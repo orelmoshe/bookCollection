@@ -1,7 +1,7 @@
 import React from 'react';
 import { styled } from '@mui/material/styles';
 
-import Card from './Card';
+import BookCard from './BookCard';
 import { BookContext, BookProps } from '../providers/BookProvider';
 
 const Container = styled('div')({
@@ -10,15 +10,15 @@ const Container = styled('div')({
   justifyContent: 'center',
 });
 
-const CardCollection: React.FC = () => {
+const BookCardCollection: React.FC = () => {
   const { filteredBooks } = React.useContext<BookProps>(BookContext);
   return (
     <Container>
       {filteredBooks?.map(book => (
-        <Card key={book.id} data={book} />
+        <BookCard key={book.id} data={book} />
       ))}
     </Container>
   );
 };
 
-export default CardCollection;
+export default BookCardCollection;

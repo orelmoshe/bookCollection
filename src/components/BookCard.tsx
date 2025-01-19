@@ -68,7 +68,7 @@ const Button = styled(MuiButton, {
 interface Props {
   data: Book;
 }
-const Card: React.FC<Props> = ({ data }) => {
+const BookCard: React.FC<Props> = ({ data }) => {
   const { books, setBooks, setSelectedBook, setShouldShowAddBookModal } = React.useContext<BookProps>(BookContext);
   const [shouldShowInfo, setShouldShowInfo] = React.useState<boolean>(false);
 
@@ -106,4 +106,4 @@ const Card: React.FC<Props> = ({ data }) => {
   );
 };
 
-export default Card;
+export default BookCard;

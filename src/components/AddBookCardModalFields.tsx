@@ -10,7 +10,7 @@ const Container = styled('div')(() => ({
   flexDirection: 'column',
 }));
 
-const AddCardModalFields = () => {
+const AddBookCardModalFields = () => {
   const { control } = useFormContext();
 
   return (
@@ -92,4 +92,4 @@ const AddCardModalFields = () => {
   );
 };
 
-export default AddCardModalFields;
+export default AddBookCardModalFields;

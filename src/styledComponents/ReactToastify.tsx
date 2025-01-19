@@ -2,7 +2,7 @@ import React from 'react';
 import { Bounce, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import { alertTimeout } from '../config';
+const alertTimeout = 5000;
 
 const ReactToastify: React.FC = () => {
   return (

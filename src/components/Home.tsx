@@ -2,8 +2,8 @@ import React from 'react';
 import { styled } from '@mui/material/styles';
 
 import Header from './Header';
-import CardCollection from './CardCollection';
-import AddCardModal from './AddCardModal';
+import BookCardCollection from './BookCardCollection';
+import AddBookCardModal from './AddBookCardModal';
 import { BookContext, BookProps } from '../providers/BookProvider';
 
 const Container = styled('div')({
@@ -19,8 +19,8 @@ const Home: React.FC = () => {
   return (
     <Container>
       <Header />
-      <CardCollection />
-      {shouldShowAddBookModal && <AddCardModal open={shouldShowAddBookModal} />}
+      <BookCardCollection />
+      {shouldShowAddBookModal && <AddBookCardModal open={shouldShowAddBookModal} />}
     </Container>
   );
 };

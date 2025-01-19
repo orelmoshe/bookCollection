@@ -43,16 +43,3 @@ html,
 ::-webkit-scrollbar-thumb:window-inactive {
   background: #292b27;
 }
-
-/* @media screen and (min-width: 1920px) and  (max-width: 1920px){
- body {
-	zoom: 1;
- }	
-} */
-
-canvas {
-  -webkit-touch-callout: none;
-  -ms-touch-action: none;
-  touch-action: none;
-}
-
