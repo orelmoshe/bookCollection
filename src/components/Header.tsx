@@ -2,17 +2,18 @@ import React from 'react';
 import { styled } from '@mui/material/styles';
 import MuiButton from '@mui/material/Button';
 
-import Logo from '../assets/images/Logo.png';
+import colors from '../consts/colors';
 import FilterField from './FilterField';
+import Logo from '../assets/images/Logo.png';
 import { BookContext, BookProps } from '../providers/BookProvider';
 
 const Container = styled('div')({
-  width: '100%',
   height: 85,
-  background: '#1c2a48',
+  width: '100%',
   display: 'flex',
   justifyContent: 'space-around',
   alignItems: 'center',
+  background: colors.blueDark,
   boxShadow: `0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12)`,
 });
 
@@ -27,7 +28,7 @@ const Img = styled('img')({
 });
 
 const LogoText = styled('div')({
-  color: '#ffc107',
+  color: colors.gold,
   fontSize: 26,
   fontWeight: 300,
 });
@@ -38,13 +39,13 @@ const ActionsWrapper = styled('div')({
 });
 
 const Button = styled(MuiButton)(() => ({
+  color: colors.white,
   padding: 10,
-  background: '#ff7043',
-  boxShadow: '0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15)',
-  borderRadius: 2,
-  color: 'white',
   fontSize: 18,
   marginLeft: 20,
+  borderRadius: 2,
+  background: colors.orange,
+  boxShadow: colors.buttonBoxShadow,
 }));
 
 const Header: React.FC = () => {

@@ -3,16 +3,16 @@ import { styled } from '@mui/material/styles';
 import MuiButton from '@mui/material/Button';
 
 import colors from '../consts/colors';
-import { BookContext, BookProps } from '../providers/BookProvider';
 import { Book } from '../consts/types';
+import { BookContext, BookProps } from '../providers/BookProvider';
 
 const Container = styled('div')({
   width: 190,
   height: 290,
-  border: '1px solid black',
   position: 'relative',
   margin: 10,
   overflow: 'hidden',
+  border: `'1px solid ${colors.black}'`,
 });
 
 const Img = styled('img')({
@@ -26,13 +26,13 @@ const InfoWrapper = styled('div')({
   height: '100%',
   width: '100%',
   position: 'absolute',
-  padding: 20,
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'space-between',
   background: 'rgba(0, 0, 0, 0.7)',
-  zIndex: 2,
+  padding: 20,
   cursor: 'pointer',
+  zIndex: 2,
 });
 
 const TextWrapper = styled('div')({
@@ -58,10 +58,10 @@ const Button = styled(MuiButton, {
   shouldForwardProp: (prop: any) => prop !== 'background',
 })(({ background = colors.grayLight }: { background?: string }) => ({
   padding: 5,
-  background,
-  boxShadow: '0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15)',
   borderRadius: 2,
-  color: 'white',
+  background,
+  boxShadow: colors.buttonBoxShadow,
+  color: colors.white,
   fontSize: 12,
 }));
 
@@ -76,13 +76,16 @@ const BookCard: React.FC<Props> = ({ data }) => {
     setSelectedBook(data);
     setShouldShowAddBookModal(true);
   };
+
   const deleteHandler = () => {
     const filteredBooks = books.filter(b => b.id !== data.id);
-    console.log('filteredBooks', filteredBooks);
     setBooks(filteredBooks);
   };
+
   const mouseEnterHandler = () => setShouldShowInfo(true);
+
   const mouseLeaveHandler = () => setShouldShowInfo(false);
+
   return (
     <Container onMouseEnter={mouseEnterHandler} onMouseLeave={mouseLeaveHandler}>
       <Img src={data.img} alt="BookImg" />
@@ -96,7 +99,7 @@ const BookCard: React.FC<Props> = ({ data }) => {
 
           <Actions>
             <Button onClick={editHandler}>Edit</Button>
-            <Button onClick={deleteHandler} sx={{ background: colors.red }}>
+            <Button onClick={deleteHandler} background={colors.red}>
               Delete
             </Button>
           </Actions>

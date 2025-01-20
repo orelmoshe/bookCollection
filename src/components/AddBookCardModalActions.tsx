@@ -1,7 +1,7 @@
 import React from 'react';
-import { useFormContext } from 'react-hook-form';
-import { styled } from '@mui/material/styles';
 import MuiButton from '@mui/material/Button';
+import { styled } from '@mui/material/styles';
+import { useFormContext } from 'react-hook-form';
 
 import colors from '../consts/colors';
 import { BookContext, BookProps } from '../providers/BookProvider';
@@ -18,7 +18,7 @@ const Button = styled(MuiButton, {
 })(({ background = colors.white }: { background?: string }) => ({
   padding: 5,
   background,
-  boxShadow: '0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15)',
+  boxShadow: colors.buttonBoxShadow,
   borderRadius: 2,
   color: colors.black,
   fontSize: 12,
@@ -38,7 +38,7 @@ const AddBookCardModalActions: React.FC = () => {
       <Button onClick={cancelHandler} sx={{ marginRight: 2 }}>
         Cancel
       </Button>
-      <Button type="submit" sx={{ background: colors.darkYellow, color: colors.white }}>
+      <Button type="submit" background={colors.darkYellow} sx={{ color: colors.white }}>
         Save
       </Button>
     </Container>

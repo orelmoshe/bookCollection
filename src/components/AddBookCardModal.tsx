@@ -1,25 +1,25 @@
 import React from 'react';
-import { FormProvider, useForm } from 'react-hook-form';
-import { styled } from '@mui/material/styles';
 import Modal from '@mui/material/Modal';
+import { styled } from '@mui/material/styles';
+import { FormProvider, useForm } from 'react-hook-form';
 
 import colors from '../consts/colors';
-import { BookContext, BookProps } from '../providers/BookProvider';
+import { generateUniqId } from '../utils/utils';
 import AddBookCardModalFields from './AddBookCardModalFields';
 import AddBookCardModalActions from './AddBookCardModalActions';
-import { generateUniqId } from '../utils/utils';
+import { BookContext, BookProps } from '../providers/BookProvider';
 
 const Container = styled('div')(({ theme }) => ({
+  minWidth: 250,
+  minHeight: 350,
   position: 'absolute',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  background: colors.white,
-  boxShadow: '0 11px 15px -7px rgba(0,0,0,.2),0 24px 38px 3px rgba(0,0,0,.14),0 9px 46px 8px rgba(0,0,0,.12)',
-  borderRadius: 2,
   padding: 24,
-  minWidth: 250,
-  minHeight: 350,
+  borderRadius: 2,
+  background: colors.white,
+  boxShadow: colors.modalBoxShadow,
   [theme.breakpoints.up('sm')]: {
     minWidth: 400,
   },
@@ -32,19 +32,18 @@ const Container = styled('div')(({ theme }) => ({
 }));
 
 const Form = styled('form')(() => ({
-  height: '100%',
-  width: '-webkit-fill-available',
   display: 'flex',
   flexDirection: 'column',
 }));
 
 const TitleText = styled('div')(() => ({
-  color: '#4f4f4f',
+  color: colors.grayDark,
+  textAlign: 'center',
   fontSize: 22,
   fontWeight: 300,
-  textAlign: 'center',
 }));
 
+const defualtBookImg = 'https://image.ibb.co/eA7QJ9/book_Cover.png';
 interface Props {
   open: boolean;
   onClose?: () => void;
@@ -57,7 +56,7 @@ const AddBookCardModal: React.FC<Props> = ({ open, onClose = () => {} }) => {
       title: selectedBook?.title || '',
       authors: selectedBook?.authors || '',
       year: selectedBook?.year || null,
-      img: selectedBook?.img || 'https://image.ibb.co/eA7QJ9/book_Cover.png',
+      img: selectedBook?.img || defualtBookImg,
     },
   });
 
@@ -76,7 +75,7 @@ const AddBookCardModal: React.FC<Props> = ({ open, onClose = () => {} }) => {
         setBooks(prev => prev.concat(newBook));
       }
     } catch (e) {
-      console.log('Failed', e);
+      console.log('Failed when try to sumbit form, Error: ', e);
     } finally {
       methods.reset();
       setShouldShowAddBookModal(false);
