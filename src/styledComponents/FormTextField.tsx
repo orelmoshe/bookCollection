@@ -28,6 +28,7 @@ const FormTextField: React.FC<Props> = ({ name, label, errorMsg }) => {
           defaultValue=""
           helperText={!field.value && (touchedFields?.[name] || errors?.[name]) ? errorMsg : null}
           variant="standard"
+          sx={{ height: 70 }}
           {...field}
         />
       )}
